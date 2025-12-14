@@ -1,4 +1,4 @@
-<img width="1431" height="955" alt="1" src="https://github.com/user-attachments/assets/dd1e2048-be53-46df-94f5-f085e306bf6c" /># 🚀 Microservices
+# 🚀 Microservices
 A structured guide and practical implementation journey from monolithic architecture to scalable microservices. This repository covers fundamental principles, architectural patterns, and hands-on examples for building, deploying, and maintaining distributed systems in production environments.
 
 ---
@@ -206,6 +206,7 @@ Message Broker -> Notification: "Send order confirmation #456"
 
 **How Event-Driven Differs from Message Communication:**
 While both are asynchronous, event-driven communication focuses on **state changes** rather than **commands**. Services emit events when something significant happens, and other services react if interested.
+<img width="1425" height="930" alt="3" src="https://github.com/user-attachments/assets/32a9cc2e-7a53-4d9f-afc8-797565b6445b" />
 
 **Event-Driven Architecture Pattern:**
 ```
