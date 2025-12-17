@@ -523,6 +523,7 @@ In a distributed microservices architecture, services are dynamic—they can be 
 
 ## 📌 The Problem
 <img width="1406" height="996" alt="5" src="https://github.com/user-attachments/assets/50adf208-a4d0-4596-b56a-0770ca8b4152" />
+
 *In any distributed architecture, we need to find the physical address of where a machine is located.*
 
 When services are deployed across multiple instances, containers, or servers, manually tracking their network locations becomes:
@@ -534,6 +535,7 @@ When services are deployed across multiple instances, containers, or servers, ma
 
 ## 💡 The Solution: Service Registry Pattern
 <img width="1406" height="996" alt="5" src="https://github.com/user-attachments/assets/5ac6d826-cfab-4f7c-bab5-22b6d21caa6e" />
+
 *Using service discovery, a service can register itself when it is up and healthy.*
 
 A **Service Registry** (like Eureka, Consul, etc.) acts as a phonebook for your services. Each service:
@@ -568,6 +570,7 @@ In this pattern:
 
 ## 📊 Available Market Options
 <img width="1403" height="977" alt="7" src="https://github.com/user-attachments/assets/969aa313-3f63-4d2e-867f-c79920bb45af" />
+
 *Popular service registry products used in production.*
 
 | Tool | Maintainer | Key Features |
