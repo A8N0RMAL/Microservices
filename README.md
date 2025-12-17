@@ -554,6 +554,7 @@ Clients query the registry to get current, healthy instances of a service.
 
 ## 🛠️ Service Discovery with API Gateway
 <img width="1402" height="905" alt="6" src="https://github.com/user-attachments/assets/166469b3-271c-419a-9948-01614fe30965" />
+
 *Service discovery integrated with an API Gateway (Zuul) and service registry (Eureka).*
 
 In this pattern:
