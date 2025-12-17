@@ -3,7 +3,7 @@ A structured guide and practical implementation journey from monolithic architec
 
 ---
 
-# Monolithic Vs. Microservices
+# 📌 Monolithic Vs. Microservices
 * **Microservices** architecture arranges applications as a collection of **loosely coupled** services that can communicate but operate independently.
 * In a **Monolithic** application, **one single unit** performs multiple business tasks, whereas microservices isolate responsibilities to focused services.
 <img width="1411" height="972" alt="Screenshot 2025-12-09 213253" src="https://github.com/user-attachments/assets/98e77df4-f250-4781-bb2b-66bb9e6068f2" />
@@ -506,5 +506,93 @@ Web Browsers:
 - **Dynamic routing** based on service registry
 - **Cross-cutting concerns** centralized
 - **Request/Response transformation**
+
+---
+
+Here's a polished **README.md** section for your microservices repository covering **Service Discovery** with your images:
+
+---
+
+# 🧭 Service Discovery in Microservices Architecture
+
+## 🔍 What is Service Discovery?
+
+In a distributed microservices architecture, services are dynamic—they can be scaled up/down, moved, or fail at any time. Hardcoding service locations (IPs/ports) is not feasible. **Service Discovery** solves this by allowing services to find each other automatically.
+
+---
+
+## 📌 The Problem
+<img width="1406" height="996" alt="5" src="https://github.com/user-attachments/assets/50adf208-a4d0-4596-b56a-0770ca8b4152" />
+*In any distributed architecture, we need to find the physical address of where a machine is located.*
+
+When services are deployed across multiple instances, containers, or servers, manually tracking their network locations becomes:
+- ❌ Error-prone
+- ❌ Inflexible to scaling
+- ❌ Hard to maintain during failures
+
+---
+
+## 💡 The Solution: Service Registry Pattern
+<img width="1406" height="996" alt="5" src="https://github.com/user-attachments/assets/5ac6d826-cfab-4f7c-bab5-22b6d21caa6e" />
+*Using service discovery, a service can register itself when it is up and healthy.*
+
+A **Service Registry** (like Eureka, Consul, etc.) acts as a phonebook for your services. Each service:
+1. **Registers** itself on startup
+2. **Deregisters** on shutdown
+3. **Periodically sends heartbeats** to indicate it's alive
+
+Clients query the registry to get current, healthy instances of a service.
+
+### Key Benefits:
+- ✅ **Load Balanced** – Requests are distributed across available instances
+- ✅ **Resilient** – Local caching allows graceful degradation if the registry fails
+- ✅ **Fault-Tolerant** – Unhealthy instances are automatically removed
+
+---
+
+## 🛠️ Service Discovery with API Gateway
+<img width="1402" height="905" alt="6" src="https://github.com/user-attachments/assets/166469b3-271c-419a-9948-01614fe30965" />
+*Service discovery integrated with an API Gateway (Zuul) and service registry (Eureka).*
+
+In this pattern:
+- Services register with **Eureka** (service registry)
+- **Zuul (API Gateway)** queries Eureka to route requests
+- Clients talk to the gateway, not directly to services
+- Enables:
+  - Centralized routing
+  - Load balancing
+  - Authentication
+  - Rate limiting
+
+---
+
+## 📊 Available Market Options
+<img width="1403" height="977" alt="7" src="https://github.com/user-attachments/assets/969aa313-3f63-4d2e-867f-c79920bb45af" />
+*Popular service registry products used in production.*
+
+| Tool | Maintainer | Key Features |
+|------|------------|--------------|
+| **Netflix Eureka** | Netflix | REST-based, AWS-integrated, resilient |
+| **Consul** | HashiCorp | Service discovery + health checking + KV store |
+| **ZooKeeper** | Apache | CP system, used by Kafka, Hadoop |
+| **etcd** | CoreOS | Distributed key-value store, used in Kubernetes |
+| **SkyDNS** | Kubernetes | DNS-based service discovery for K8s |
+| **SmartStack** | Airbnb | Nerve + Synapse for dynamic service registration |
+
+---
+
+## 🧠 Best Practices
+
+1. **Always implement client-side caching** to avoid overloading the registry.
+2. **Use health checks** to automatically remove unhealthy instances.
+3. **Combine with an API Gateway** for simplified client communication.
+4. **Choose based on your ecosystem** (Eureka for Spring Cloud, Consul for multi-platform, etc.).
+
+---
+
+## 📚 Further Reading
+- [Spring Cloud Netflix Eureka Documentation](https://spring.io/projects/spring-cloud-netflix)
+- [Consul: Service Discovery Made Easy](https://www.consul.io/)
+- [Microservices Patterns: Service Discovery](https://microservices.io/patterns/service-registry.html)
 
 ---
